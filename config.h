@@ -109,7 +109,7 @@ static const char *lowermaster[] = { "amixer", "set", "Master", "5%-", "unmute",
 static const char *raisemaster[] = { "amixer", "set", "Master", "3%+", "unmute", NULL };
 static const char *lowerpcm[] = { "amixer", "-c", "1", "set", "PCM", "5%-", "unmute", NULL };
 static const char *raisepcm[] = { "amixer", "-c", "1", "set", "PCM", "3%+", "unmute", NULL };
-static const char *screenshotcmd[] = { "import", "/tmp/0/screenshot.png", NULL };
+static const char *screenshotcmd[] = { "sh", "-c", "import /tmp/0/screenshot-$(date '+%H%M%S').png", NULL };
 
 #include <X11/XF86keysym.h>
 #include "selfrestart.c"
