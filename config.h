@@ -206,12 +206,12 @@ static Key keys[] = {
 
     // multimedia
 
-    { 0,                    XF86XK_AudioLowerVolume,   spawn,          {.v = lowermaster } },
-    { 0,                    XF86XK_AudioRaiseVolume,   spawn,          {.v = raisemaster } },
-    { ControlMask,          XK_KP_Subtract,            spawn,          {.v = lowermaster } },
-    { ControlMask,          XK_KP_Add,                 spawn,          {.v = raisemaster } },
-    { ControlMask,          XK_KP_Divide,              spawn,          {.v = lowerpcm } },
-    { ControlMask,          XK_KP_Multiply,            spawn,          {.v = raisepcm } },
+    { 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = lowermaster } },
+    { 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = raisemaster } },
+    { MODKEY,       XK_KP_Subtract,            spawn,          {.v = lowermaster } },
+    { MODKEY,       XK_KP_Add,                 spawn,          {.v = raisemaster } },
+    { MODKEY,       XK_KP_Divide,              spawn,          {.v = lowerpcm } },
+    { MODKEY,       XK_KP_Multiply,            spawn,          {.v = raisepcm } },
 
 };
 
