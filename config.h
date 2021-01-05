@@ -74,7 +74,8 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* commands */
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
+static const char *stcmd[]  = { "st", NULL };
 static const char *xtermcmd[]  = { "launch-xterm.sh", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "90x34", NULL };
@@ -117,7 +118,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ 0,                            XK_Menu,   spawn,          {.v = roficmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_z,      spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_z,      spawn,          {.v = stcmd } },
 	{ MODKEY|Mod1Mask,              XK_z,      spawn,          {.v = xtermcmd } },
 	{ ControlMask,                  XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 
