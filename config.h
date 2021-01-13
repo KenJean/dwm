@@ -75,79 +75,79 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *termcmd[]  = { "kitty", NULL };
-static const char *stcmd[]  = { "st", NULL };
-static const char *xtermcmd[]  = { "launch-xterm.sh", NULL };
+// static const char *stcmd[]  = { "st", NULL };
+// static const char *xtermcmd[]  = { "launch-xterm.sh", NULL };
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "90x34", NULL };
-static const char *roficmd[]  = { "rofi", "-show", "drun", "-theme", "arthur", NULL };
-static const char *poweroffcmd[]  = { "poweroff", NULL };
-static const char *rebootcmd[]  = { "reboot", NULL };
-static const char *trashemptycmd[] = { "zsh", "-c", "trash-empty", NULL };
-static const char *dismountall[] = { "zsh", "-c", "unu", NULL };
-static const char *controlaltdelete[] = { "xterm", "-e", "htop", NULL };
-static const char *conkiescmd[] = { "conkies.sh", NULL };
-static const char *polybarcmd[] = { "/home/kj/.config/polybar/launch.sh", NULL };
-static const char *bashmountcmd[] = { "xterm", "-e", "bashmount", NULL };
-static const char *statsresetattached[] = { "stats-reset.sh", "attached", NULL };
-static const char *statsresetshare[] = { "stats-reset.sh", "share", NULL };
-static const char *statsreset[] = { "stats-reset.sh", NULL };
-static const char *recordingscmd[] = { "recordings.sh", NULL };
-static const char *emailcmd[] = { "thunderbird", "-compose", NULL };
-static const char *firefoxcmd[] = { "firefox", NULL };
-static const char *gimpcmd[] = { "gimp", NULL };
-static const char *keepassxccmd[] = { "keepassxc", NULL };
-static const char *mpdcontrolcmd[] = { "mpdcontrol", NULL };
-static const char *freememcmd[] = { "freemem.sh", NULL };
-static const char *newsboatcmd[] = { "launch-newsboat.sh", NULL };
-static const char *rec64cmd[] = { "rec64", NULL };
-static const char *thunderbirdcmd[] = { "thunderbird", NULL };
-static const char *vimbcmd[] = { "vimb", NULL };
-static const char *playvccmd[] = { "playv.sh", "C", NULL };
-static const char *playvxcmd[] = { "playv.sh", "X", NULL };
-static const char *favscmd[] = { "favs.sh", NULL };
-static const char *nzbgetcmd[] = { "zsh", "-c", "launch-nzbget", NULL };
-static const char *lowermaster[] = { "amixer", "set", "Master", "5%-", "unmute", NULL };
-static const char *raisemaster[] = { "amixer", "set", "Master", "3%+", "unmute", NULL };
-static const char *lowerpcm[] = { "amixer", "-c", "1", "set", "PCM", "5%-", "unmute", NULL };
-static const char *raisepcm[] = { "amixer", "-c", "1", "set", "PCM", "3%+", "unmute", NULL };
-static const char *screenshotcmd[] = { "sh", "-c", "import /tmp/0/screenshot-$(date '+%H%M%S').png", NULL };
+static const char *scratchpadcmd[] = { "xterm", "-title", scratchpadname, "-geometry", "90x34", NULL };
+// static const char *roficmd[]  = { "rofi", "-show", "drun", "-theme", "arthur", NULL };
+// static const char *poweroffcmd[]  = { "poweroff", NULL };
+// static const char *rebootcmd[]  = { "reboot", NULL };
+// static const char *trashemptycmd[] = { "zsh", "-c", "trash-empty", NULL };
+// static const char *dismountall[] = { "zsh", "-c", "unu", NULL };
+// static const char *controlaltdelete[] = { "xterm", "-e", "htop", NULL };
+// static const char *conkiescmd[] = { "conkies.sh", NULL };
+// static const char *polybarcmd[] = { "/home/kj/.config/polybar/launch.sh", NULL };
+// static const char *bashmountcmd[] = { "xterm", "-e", "bashmount", NULL };
+// static const char *statsresetattached[] = { "stats-reset.sh", "attached", NULL };
+// static const char *statsresetshare[] = { "stats-reset.sh", "share", NULL };
+// static const char *statsreset[] = { "stats-reset.sh", NULL };
+// static const char *rec64cmd[] = { "rec64", NULL };
+// static const char *recordingscmd[] = { "recordings.sh", NULL };
+// static const char *thunderbirdcmd[] = { "thunderbird", NULL };
+// static const char *emailcmd[] = { "thunderbird", "-compose", NULL };
+// static const char *firefoxcmd[] = { "firefox", NULL };
+// static const char *gimpcmd[] = { "gimp", NULL };
+// static const char *keepassxccmd[] = { "keepassxc", NULL };
+// static const char *mpdcontrolcmd[] = { "mpdcontrol", NULL };
+// static const char *freememcmd[] = { "freemem.sh", NULL };
+// static const char *newsboatcmd[] = { "launch-newsboat.sh", NULL };
+// static const char *vimbcmd[] = { "vimb", NULL };
+// static const char *playvccmd[] = { "playv.sh", "C", NULL };
+// static const char *playvxcmd[] = { "playv.sh", "X", NULL };
+// static const char *favscmd[] = { "favs.sh", NULL };
+// static const char *nzbgetcmd[] = { "zsh", "-c", "launch-nzbget", NULL };
+// static const char *lowermaster[] = { "amixer", "set", "Master", "5%-", "unmute", NULL };
+// static const char *raisemaster[] = { "amixer", "set", "Master", "3%+", "unmute", NULL };
+// static const char *lowerpcm[] = { "amixer", "-c", "1", "set", "PCM", "5%-", "unmute", NULL };
+// static const char *raisepcm[] = { "amixer", "-c", "1", "set", "PCM", "3%+", "unmute", NULL };
+// static const char *screenshotcmd[] = { "sh", "-c", "import /tmp/0/screenshot-$(date '+%H%M%S').png", NULL };
 
 #include <X11/XF86keysym.h>
 #include "selfrestart.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ 0,                            XK_Menu,   spawn,          {.v = roficmd } },
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_z,      spawn,          {.v = stcmd } },
-	{ MODKEY|Mod1Mask,              XK_z,      spawn,          {.v = xtermcmd } },
+	// { 0,                            XK_Menu,   spawn,          {.v = roficmd } },
+	// { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	// { MODKEY,                       XK_z,      spawn,          {.v = stcmd } },
+	// { MODKEY|Mod1Mask,              XK_z,      spawn,          {.v = xtermcmd } },
 	{ ControlMask,                  XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 
     // launchers
-    { MODKEY,                       XK_Delete, spawn,          {.v = trashemptycmd } },
-    { MODKEY,                       XK_End,    spawn,          {.v = dismountall } },
-    { ControlMask|Mod1Mask,         XK_Delete, spawn,          {.v = controlaltdelete } },
-    { MODKEY,                       XK_F1,     spawn,          {.v = conkiescmd } },
-    { MODKEY,                       XK_F2,     spawn,          {.v = polybarcmd } },
-    { Mod3Mask,                     XK_Tab,    spawn,          {.v = bashmountcmd} },
-    { Mod3Mask,                     XK_F1,     spawn,          {.v = statsresetattached } },
-    { Mod3Mask,                     XK_F2,     spawn,          {.v = statsresetshare } },
-    { Mod3Mask,                     XK_F3,     spawn,          {.v = statsreset } },
-    { Mod3Mask,                     XK_r,      spawn,          {.v = rec64cmd } },
-    { Mod3Mask|ShiftMask,           XK_r,      spawn,          {.v = recordingscmd } },
-    { Mod3Mask,                     XK_f,      spawn,          {.v = firefoxcmd } },
-    { Mod3Mask,                     XK_t,      spawn,          {.v = thunderbirdcmd } },
-    { Mod3Mask|ShiftMask,           XK_t,      spawn,          {.v = emailcmd } },
-    { Mod3Mask,                     XK_g,      spawn,          {.v = gimpcmd } },
-    { Mod3Mask,                     XK_k,      spawn,          {.v = keepassxccmd } },
-    { Mod3Mask,                     XK_m,      spawn,          {.v = mpdcontrolcmd } },
-    { ControlMask|Mod1Mask,         XK_m,      spawn,          {.v = freememcmd } },
-    { Mod3Mask,                     XK_n,      spawn,          {.v = newsboatcmd } },
-    { Mod3Mask,                     XK_v,      spawn,          {.v = vimbcmd } },
-    { Mod3Mask,                     XK_x,      spawn,          {.v = favscmd } },
-    { Mod3Mask|Mod1Mask,            XK_x,      spawn,          {.v = playvccmd } },
-    { Mod3Mask|ControlMask,         XK_x,      spawn,          {.v = playvxcmd } },
-    { Mod3Mask,                     XK_z,      spawn,          {.v = nzbgetcmd } },
-    { 0,                            XK_Print,  spawn,          {.v = screenshotcmd } },
+    // { MODKEY,                       XK_Delete, spawn,          {.v = trashemptycmd } },
+    // { MODKEY,                       XK_End,    spawn,          {.v = dismountall } },
+    // { ControlMask|Mod1Mask,         XK_Delete, spawn,          {.v = controlaltdelete } },
+    // { MODKEY,                       XK_F1,     spawn,          {.v = conkiescmd } },
+    // { MODKEY,                       XK_F2,     spawn,          {.v = polybarcmd } },
+    // { Mod3Mask,                     XK_Tab,    spawn,          {.v = bashmountcmd} },
+    // { Mod3Mask,                     XK_F1,     spawn,          {.v = statsresetattached } },
+    // { Mod3Mask,                     XK_F2,     spawn,          {.v = statsresetshare } },
+    // { Mod3Mask,                     XK_F3,     spawn,          {.v = statsreset } },
+    // { Mod3Mask,                     XK_r,      spawn,          {.v = rec64cmd } },
+    // { Mod3Mask|ShiftMask,           XK_r,      spawn,          {.v = recordingscmd } },
+    // { Mod3Mask,                     XK_f,      spawn,          {.v = firefoxcmd } },
+    // { Mod3Mask,                     XK_t,      spawn,          {.v = thunderbirdcmd } },
+    // { Mod3Mask|ShiftMask,           XK_t,      spawn,          {.v = emailcmd } },
+    // { Mod3Mask,                     XK_g,      spawn,          {.v = gimpcmd } },
+    // { Mod3Mask,                     XK_k,      spawn,          {.v = keepassxccmd } },
+    // { Mod3Mask,                     XK_m,      spawn,          {.v = mpdcontrolcmd } },
+    // { ControlMask|Mod1Mask,         XK_m,      spawn,          {.v = freememcmd } },
+    // { Mod3Mask,                     XK_n,      spawn,          {.v = newsboatcmd } },
+    // { Mod3Mask,                     XK_v,      spawn,          {.v = vimbcmd } },
+    // { Mod3Mask,                     XK_x,      spawn,          {.v = favscmd } },
+    // { Mod3Mask|Mod1Mask,            XK_x,      spawn,          {.v = playvccmd } },
+    // { Mod3Mask|ControlMask,         XK_x,      spawn,          {.v = playvxcmd } },
+    // { Mod3Mask,                     XK_z,      spawn,          {.v = nzbgetcmd } },
+    // { 0,                            XK_Print,  spawn,          {.v = screenshotcmd } },
 
     // dwm
     { MODKEY,                       XK_b,      togglebar,      {0} },
@@ -182,8 +182,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-    { ControlMask|Mod1Mask,         XK_x,      spawn,          {.v = poweroffcmd } },
-    { ControlMask|Mod1Mask,         XK_r,      spawn,          {.v = rebootcmd } },
+    // { ControlMask|Mod1Mask,         XK_x,      spawn,          {.v = poweroffcmd } },
+    // { ControlMask|Mod1Mask,         XK_r,      spawn,          {.v = rebootcmd } },
     { ControlMask|Mod1Mask,         XK_q,      quit,           {0} },
     { MODKEY|ShiftMask,             XK_r,      self_restart,   {0} },
 
@@ -207,12 +207,12 @@ static Key keys[] = {
 
     // multimedia
 
-    { 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = lowermaster } },
-    { 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = raisemaster } },
-    { MODKEY,       XK_KP_Subtract,            spawn,          {.v = lowermaster } },
-    { MODKEY,       XK_KP_Add,                 spawn,          {.v = raisemaster } },
-    { MODKEY,       XK_KP_Divide,              spawn,          {.v = lowerpcm } },
-    { MODKEY,       XK_KP_Multiply,            spawn,          {.v = raisepcm } },
+    // { 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = lowermaster } },
+    // { 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = raisemaster } },
+    // { MODKEY,       XK_KP_Subtract,            spawn,          {.v = lowermaster } },
+    // { MODKEY,       XK_KP_Add,                 spawn,          {.v = raisemaster } },
+    // { MODKEY,       XK_KP_Divide,              spawn,          {.v = lowerpcm } },
+    // { MODKEY,       XK_KP_Multiply,            spawn,          {.v = raisepcm } },
 
 };
 
